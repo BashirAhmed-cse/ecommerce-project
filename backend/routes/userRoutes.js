@@ -1,7 +1,7 @@
 import express from "express";
 import {createUser, loginUser, logoutUser, 
     getAllUsers, getCurrentUserProfile, 
-    updateCurrentUserProfile, deleteUserById
+    updateCurrentUserProfile, deleteUserById, getUserById, updateUserById
 } from '../controllers/userController.js';
 
 import { authenticate, authorizeAdmin } from "../middlewars/authMiddleware.js";
@@ -20,6 +20,9 @@ router.route('/profile')
 .put(authenticate, updateCurrentUserProfile);
 
 //admin routes
-router.route('/:id').delete(authenticate, authorizeAdmin, deleteUserById)
+router.route('/:id')
+.delete(authenticate, authorizeAdmin, deleteUserById)
+.get(authenticate, authorizeAdmin, getUserById)
+.put(authenticate, authorizeAdmin, updateUserById);
 
 export default router;
