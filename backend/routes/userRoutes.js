@@ -12,6 +12,8 @@ router.route("/")
 .post(createUser)
 .get(authenticate, authorizeAdmin, getAllUsers);
 
+
+
 router.post('/auth', loginUser);
 router.post('/logout', logoutUser);
 
