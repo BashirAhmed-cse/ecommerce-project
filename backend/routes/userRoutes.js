@@ -4,7 +4,7 @@ import {createUser, loginUser, logoutUser,
     updateCurrentUserProfile, deleteUserById, getUserById, updateUserById
 } from '../controllers/userController.js';
 
-import { authenticate, authorizeAdmin } from "../middlewars/authMiddleware.js";
+import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js";
 
 const router =  express.Router();
 

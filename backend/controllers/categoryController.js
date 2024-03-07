@@ -1,5 +1,5 @@
 import Category from "../models/categoryModel.js";
-import asyncHandler from "../middlewars/asyncHandler.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 
 const createCategory = asyncHandler(async (req, res) => {
   try {
@@ -46,7 +46,7 @@ const updateCategory = asyncHandler(async (req, res) => {
 
 const removeCategory = asyncHandler(async (req, res) => {
   try {
-    const removed = await Category.findByIdAndRemove(req.params.categoryId);
+    const removed = await Category.findByIdAndDelete(req.params.categoryId);
     res.json(removed);
   } catch (error) {
     console.error(error);
